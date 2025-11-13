@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Advanced Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="calculator">
+    <section class="display">
+      <div id="expression" class="expression" aria-live="polite"></div>
+      <div id="result" class="result" aria-live="polite"></div>
+    </section>
+
+    <section class="keys">
+      <!-- first row: advanced -->
+      <button class="btn alt" data-action="sqrt">√</button>
+      <button class="btn alt" data-action="pi">π</button>
+      <button class="btn alt" data-action="pow">^</button>
+      <button class="btn alt" data-action="fact">!</button>
+
+      <!-- second row -->
+      <button class="btn clear" data-action="all-clear">AC</button>
+      <button class="btn" data-action="paren">( )</button>
+      <button class="btn" data-action="percent">%</button>
+      <button class="btn op" data-action="divide">÷</button>
+
+      <!-- numbers and basic ops -->
+      <button class="btn num" data-value="7">7</button>
+      <button class="btn num" data-value="8">8</button>
+      <button class="btn num" data-value="9">9</button>
+      <button class="btn op" data-action="multiply">×</button>
+
+      <button class="btn num" data-value="4">4</button>
+      <button class="btn num" data-value="5">5</button>
+      <button class="btn num" data-value="6">6</button>
+      <button class="btn op" data-action="subtract">−</button>
+
+      <button class="btn num" data-value="1">1</button>
+      <button class="btn num" data-value="2">2</button>
+      <button class="btn num" data-value="3">3</button>
+      <button class="btn op" data-action="add">+</button>
+
+      <button class="btn num" data-value="0">0</button>
+      <button class="btn" data-value=".">.</button>
+      <button class="btn" data-action="backspace">⌫</button>
+      <button class="btn eq" data-action="equals">=</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
