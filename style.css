@@ -1,0 +1,243 @@
+:root {
+            --color-bg-primary: #1c1c1e;
+            --color-bg-secondary: #2c2c2e;
+            --color-bg-tertiary: #3a3a3c;
+            --color-display: #000000;
+            --color-text-primary: #ffffff;
+            --color-text-secondary: #a0a0a0;
+            --color-operator: #ff9f0a;
+            --color-operator-hover: #ffb340;
+            --color-function: #505050;
+            --color-function-hover: #686868;
+            --color-number: #333333;
+            --color-number-hover: #484848;
+            --color-ac: #d4d4d2;
+            --color-ac-text: #1c1c1e;
+            --color-equals: #ff9f0a;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #37373b 0%, #363638 100%);
+            min-height: 100vh; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.25rem;    
+        }
+
+        .calculator {
+            background: var(--color-bg-primary);
+            border-radius: 1.5rem;
+            box-shadow: var(--shadow);
+            padding: 1.25rem;
+            width: 100%;
+            max-width: 380px;
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .calculator:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Display Section */
+        .display-container {
+            background: var(--color-display);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .expression {
+            color: var(--color-text-secondary);
+            font-size: 1.1rem;
+            min-height: 1.75rem;
+            text-align: right;
+            word-wrap: break-word;
+            margin-bottom: 8px;
+            font-weight: 300;
+        }
+
+        .result {
+            color: var(--color-text-primary);
+            font-size: 3rem;
+            text-align: right;
+            word-wrap: break-word;
+            font-weight: 200;
+            letter-spacing: -1px;
+        }
+
+        .result.error {
+            color: #ff3b30;
+            font-size: 1.25rem;
+        }
+
+        /* Button Grid */
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+        }
+
+        button {
+            border: none;
+            border-radius: 50%;
+            font-size: 1.75rem;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-primary);
+            outline: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.4s ease, height 0.4s ease;
+        }
+
+        button:active::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        /* Button Types */
+        .btn-number {
+            background: var(--color-number);
+        }
+
+        .btn-number:hover {
+            background: var(--color-number-hover);
+        }
+
+        .btn-operator {
+            background: var(--color-operator);
+            font-size: 2rem;
+        }
+
+        .btn-operator:hover {
+            background: var(--color-operator-hover);
+        }
+
+        .btn-operator.active {
+            background: var(--color-text-primary);
+            color: var(--color-operator);
+        }
+
+        .btn-function {
+            background: var(--color-function);
+            font-size: 24px;
+        }
+
+        .btn-function:hover {
+            background: var(--color-function-hover);
+        }
+
+        .btn-ac {
+            background: var(--color-ac);
+            color: var(--color-ac-text);
+            font-weight: 500;
+        }
+
+        .btn-ac:hover {
+            background: #ffffff;
+        }
+
+        .btn-equals {
+            background: var(--color-equals);
+            /* grid-column: span 2;
+            aspect-ratio: auto; */
+            /* border-radius: 2rem; */
+            font-size: 2.25rem;
+        }
+
+        .btn-equals:hover {
+            background: var(--color-operator-hover);
+        }
+
+        
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .calculator {
+                max-width: 100%;
+                padding: 1rem;
+            }
+
+            .result {
+                font-size: 40px;
+            }
+
+            .expression {
+                font-size: 16px;
+            }
+
+            button {
+                font-size: 24px;
+            }
+
+            .btn-operator {
+                font-size: 28px;
+            }
+
+            .btn-function {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .buttons {
+                gap: 0.5rem;
+            }
+
+            .result {
+                font-size: 36px;
+            }
+
+            button {
+                font-size: 22px;
+            }
+        }
+
+        /* Keyboard hint */
+        .keyboard-hint {
+            text-align: center;
+            color: var(--color-text-secondary);
+            font-size: 0.75rem;
+            margin-top: 1rem;
+            font-weight: 300;
+        }
