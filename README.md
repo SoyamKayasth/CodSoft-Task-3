@@ -36,8 +36,3 @@ python -m http.server 8000
 - Factorial is supported for integer inputs up to ~170 (larger values return Infinity).
 - The project is client-only — no build step required.
 
-## License
-MIT
-
-## Author
-Prepared for "CodSoft Task 3"
